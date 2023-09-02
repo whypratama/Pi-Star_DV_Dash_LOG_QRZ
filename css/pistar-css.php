@@ -36,7 +36,7 @@ if (file_exists('/etc/pistar-css.ini')) {
 }
 ?>
 .container {
-    width: 820px;
+    width: 1000px;
     text-align: left;
     margin: auto;
     border-radius: 10px 10px 10px 10px;
