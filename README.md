@@ -1,10 +1,14 @@
 # Pi-Star_DV_Dash_LOG_QRZ
 Pi-Star DV Dashboard (Based on works by Hans-J. Barthen (DL5DI) and Kim Huebel (DG9VH)). Add Log To QRZ
 
+![f8cb92fa-22db-45b8-a46d-31063f1a6aef](https://github.com/whypratama/Pi-Star_DV_Dash_LOG_QRZ/assets/42627915/2b8023fa-a679-4f36-ac43-ff7ba2496276)
 
 
+=========================================
 SSH ke Raspberry Pi
+
 Login as         : pi-star
+
 password      : raspberry
 
 rpi-rw
