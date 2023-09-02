@@ -8,8 +8,11 @@ Login as         : pi-star
 password      : raspberry
 
 rpi-rw
+
 sudo chmod 777 /var/www/dashboard/
+
 cd //
+
 cd home
 
 sudo wget -O lh.php https://raw.githubusercontent.com/whypratama/Pi-Star_DV_Dash_LOG_QRZ/d5addd6102f8753d20506cd613f46b22380b75e3/mmdvmhost/lh.php
