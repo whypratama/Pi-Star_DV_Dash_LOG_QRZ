@@ -172,6 +172,13 @@ for ($i = 0;  ($i <= 19); $i++) { //Last 20 calls
 
 <script>
 function logToQRZ(callsign){
+    // Tambahkan pop-up konfirmasi sebelum mengirim data ke QRZ.com
+    var confirmation = window.confirm("Apakah Anda yakin ingin melakukan log untuk callsign " + callsign + "?");
+    
+    if (!confirmation) {
+        return; // Batal jika pengguna memilih "No"
+    }
+
     // Ganti dengan URL API QRZ.com yang sesuai
     var apiUrl = 'https://logbook.qrz.com/api';
 
@@ -182,7 +189,6 @@ function logToQRZ(callsign){
     var day = utcDate.getUTCDate().toString().padStart(2, '0');
     var hours = utcDate.getUTCHours().toString().padStart(2, '0');
     var minutes = utcDate.getUTCMinutes().toString().padStart(2, '0');
-
 
     // Format pesan sukses
     var successMessage = `${callsign} Jam ${hours}:${minutes} Tanggal ${year}-${month}-${day} Logged !`;
@@ -204,7 +210,7 @@ function logToQRZ(callsign){
         <eor>`;
 
     // Mengganti dengan kunci API QRZ.com Anda
-    var apiKey = '****-****-****-****';
+    var apiKey = 'masukkan di sini API QRZ';
 
     // Mengirim permintaan POST ke API QRZ.com
     var data = {
@@ -213,30 +219,24 @@ function logToQRZ(callsign){
         ADIF: qsoData
     };
 
-    fetch(apiUrl, {
-        method: 'POST',
-        body: new URLSearchParams(data),
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    })
-    .then(response => response.text())
-    .then(result => {
-        // Di sini Anda dapat menangani respons dari API QRZ.com
-        console.log(result);
-        alert(successMessage);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Gagal mengirim data ke QRZ.com');
-    });
-}
-</script>
-
-<script>
-function getUserDataFromRadioid($callsign2) {
-    $url = "https://radioid.net/api/dmr/user/?callsign=" . urlencode($callsign2);
-    $response = file_get_contents($url);
-    return json_decode($response, true)['results'][0];
+    if (confirmation) {
+        fetch(apiUrl, {
+            method: 'POST',
+            body: new URLSearchParams(data),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => response.text())
+        .then(result => {
+            // Di sini Anda dapat menangani respons dari API QRZ.com
+            console.log(result);
+            alert(successMessage);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Gagal mengirim data ke QRZ.com');
+        });
+    }
 }
 </script>
